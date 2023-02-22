@@ -22,7 +22,7 @@ function addItem(e){
   // Add class
   li.className = 'list-group-item';
   // Add text node with input value
-  li.appendChild(document.createTextNode(newItem));
+  li.appendChild(document.createTextNode(newItem + ' '));
   li.appendChild(document.createTextNode(newItem1));
 
   // Create del button element
