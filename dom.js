@@ -10,7 +10,7 @@ itemList.addEventListener('click', removeItem);
 filter.addEventListener('keyup', filterItems);
 
 // Add item
-function addItem(e){
+function addItem(e) {
   e.preventDefault();
 
   // Get input value
@@ -22,7 +22,7 @@ function addItem(e){
   // Add class
   li.className = 'list-group-item';
   // Add text node with input value
-  li.appendChild(document.createTextNode(newItem + ' '));
+  li.appendChild(document.createTextNode(newItem + '  '));
   li.appendChild(document.createTextNode(newItem1));
 
   // Create del button element
@@ -34,26 +34,26 @@ function addItem(e){
   // Append text node
   deleteBtn.appendChild(document.createTextNode('X'));
 
- //Edit button
+  //Edit button
   let editBtn = document.createElement('button');
- 
+
   editBtn.className = 'btn  btn-sm float-right Edit';
- 
+
   editBtn.appendChild(document.createTextNode('Edit'));
 
   // Append button to li
-  li.appendChild(deleteBtn );
+  li.appendChild(deleteBtn);
   li.prepend(editBtn)
-  
+
 
   // Append li to list
   itemList.appendChild(li);
 }
 
 // Remove item
-function removeItem(e){
-  if(e.target.classList.contains('delete')){
-    if(confirm('Are You Sure?')){
+function removeItem(e) {
+  if (e.target.classList.contains('delete')) {
+    if (confirm('Are You Sure?')) {
       var li = e.target.parentElement;
       itemList.removeChild(li);
     }
@@ -61,26 +61,45 @@ function removeItem(e){
 }
 
 // Filter Items
-function filterItems(e){
+function filterItems(e) {
   // convert text to lowercase
   var text = e.target.value.toLowerCase();
   // Get lis
   var items = itemList.getElementsByTagName('li');
   // Convert to an array
-  Array.from(items).forEach(function(item){
+  Array.from(items).forEach(function (item) {
     var itemName = item.firstChild.textContent;
-    if(itemName.toLowerCase().indexOf(text) != -1){
+    if (itemName.toLowerCase().indexOf(text) != -1) {
       item.style.display = 'block';
     } else {
       item.style.display = 'none';
     }
   });
 }
+const searchBar = document.getElementById('filter');
+const list = document.getElementById('items');
+searchBar.addEventListener('keyup', function (event) {
+  const searchText = event.target.value.toLowerCase();
+  // Get all the list items
+  const items = list.getElementsByTagName('li');
+
+  // Loop through each item and show or hide it based on the search text
+  for (let i = 0; i < items.length; i++) {
+    const item = items[i];
+    const text = item.innerText.toLowerCase();
+
+    if (text.indexOf(searchText) !== -1) {
+      item.style.display = 'block';
+    } else {
+      item.style.display = 'none';
+    }
+  }
+});
 
 
 //Creating Default buttons
 //1
-let a=document.getElementsByTagName("li")[0]
+let a = document.getElementsByTagName("li")[0]
 
 let editBtn = document.createElement('button');
 editBtn.className = 'btn  btn-sm float-right Edit';
@@ -88,7 +107,7 @@ editBtn.appendChild(document.createTextNode('Edit'));
 a.prepend(editBtn)
 
 //2
-let b=document.getElementsByTagName("li")[1]
+let b = document.getElementsByTagName("li")[1]
 
 let editBtn1 = document.createElement('button');
 editBtn1.className = 'btn  btn-sm float-right Edit';
@@ -97,7 +116,7 @@ b.prepend(editBtn1)
 
 
 //3
-let c=document.getElementsByTagName("li")[2]
+let c = document.getElementsByTagName("li")[2]
 
 let editBtn2 = document.createElement('button');
 editBtn2.className = 'btn  btn-sm float-right Edit';
@@ -105,12 +124,14 @@ editBtn2.appendChild(document.createTextNode('Edit'));
 c.prepend(editBtn2)
 
 //4
-let d=document.getElementsByTagName("li")[3]
+let d = document.getElementsByTagName("li")[3]
 
 let editBtn3 = document.createElement('button');
 editBtn3.className = 'btn  btn-sm float-right Edit';
 editBtn3.appendChild(document.createTextNode('Edit'));
 d.prepend(editBtn3)
+
+
 
 
 
