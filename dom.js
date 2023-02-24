@@ -99,35 +99,22 @@ searchBar.addEventListener('keyup', function (event) {
 });
 
 
-//Creating Default buttons
-//1
-let a = document.getElementsByTagName("li")[0]
+//Creating Default Edit buttons
 
-let editBtn = document.createElement('button');
-editBtn.className = 'btn  btn-sm float-right Edit';
-editBtn.appendChild(document.createTextNode('Edit'));
-a.prepend(editBtn)
+// Select all the li elements and store them in a variable
+const listItems = document.getElementsByTagName('li');
 
-//2
-let b = document.getElementsByTagName("li")[1]
+// Loop through each list item and create a button element with class and text
+for (let i = 0; i < listItems.length; i++) {
+  const editBtn = document.createElement('button');
+  editBtn.className = 'btn btn-sm float-right Edit';
+  editBtn.appendChild(document.createTextNode('Edit'));
+  
+  // Add the button to the beginning of each list item
+  listItems[i].prepend(editBtn);
+}
 
-let editBtn1 = document.createElement('button');
-editBtn1.className = 'btn  btn-sm float-right Edit';
-editBtn1.appendChild(document.createTextNode('Edit'));
-b.prepend(editBtn1)
-
-
-//3
-let c = document.getElementsByTagName("li")[2]
-
-let editBtn2 = document.createElement('button');
-editBtn2.className = 'btn  btn-sm float-right Edit';
-editBtn2.appendChild(document.createTextNode('Edit'));
-c.prepend(editBtn2)
-
-//4
-let d = document.getElementsByTagName("li")[3]
-
+//Creating Temporary Edit
 let editBtn3 = document.createElement('button');
 editBtn3.className = 'btn  btn-sm float-right Edit';
 editBtn3.appendChild(document.createTextNode('Edit'));
