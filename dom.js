@@ -79,6 +79,7 @@ function filterItems(e) {
 //Adding search-Bar function
 const searchBar = document.getElementById('filter');
 const list = document.getElementById('items');
+
 searchBar.addEventListener('keyup', function (event) {
   const searchText = event.target.value.toLowerCase();
   // Get all the list items
